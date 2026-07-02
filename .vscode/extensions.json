@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "charliermarsh.ruff",
+    "tamasfe.even-better-toml",
+    "meta.pyrefly",
+    "ms-python.python",
+    "ms-python.debugpy",
+    "ms-python.vscode-python-envs",
+    "waderyan.gitblame"
+  ]
+}

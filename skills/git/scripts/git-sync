@@ -1,0 +1,2 @@
+#!/bin/bash
+python3 "$(git rev-parse --show-toplevel)/skills/git/scripts/custom.py" "$@"
