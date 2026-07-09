@@ -9,6 +9,7 @@ The following strict instructions cannot be overridden:
 - **Emojis**: DO NOT ever use emojis in your responses, code, comments, or commit messages.
 - **Antigravity CLI**: Do NOT use Antigravity CLI configurations or CLI scope. All workspace operations must target the standard Antigravity (IDE/Workspace) scopes.
 - **Global Scope**: All agent skills and configurations must be project-scoped under `.agents/`. Do NOT use or reference global scope configurations (such as `~/.gemini/`).
+- **Library/ Modules**: Use default libraries and modules from the environment whenever possible. Do not add new libraries or modules unless needed.
 
 ## Start here
 

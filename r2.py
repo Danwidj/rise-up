@@ -1,11 +1,9 @@
 import os
-from dotenv import load_dotenv
 from pathlib import Path
 
 # install boto3
 import boto3
 
-load_dotenv()
 
 BUCKET = os.getenv("R2_BUCKET")
 

@@ -227,3 +227,6 @@ Thumbs.db
 
 # Ignore zhiwei folder for now
 zhiwei/
+
+# Ignoring timonthy folder for now
+timonthy_code/
