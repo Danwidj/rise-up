@@ -1,0 +1,5 @@
+# Shell scripts must keep LF endings — bash cannot parse CRLF,
+# even in Git Bash on Windows (core.autocrlf would otherwise convert them).
+*.sh text eol=lf
+.envrc text eol=lf
+skills/git/scripts/git-sync text eol=lf

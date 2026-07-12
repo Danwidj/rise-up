@@ -1,5 +1,11 @@
 {
   "terminal.integrated.fontFamily": "'FiraCode Nerd Font', monospace",
+  "terminal.integrated.profiles.windows": {
+    "Git Bash": {
+      "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "args": ["--login", "-i"]
+    }
+  },
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "files.autoSave": "afterDelay",
   "editor.formatOnSave": true,
