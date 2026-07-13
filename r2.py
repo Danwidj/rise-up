@@ -3,7 +3,9 @@ from pathlib import Path
 
 # install boto3
 import boto3
+from dotenv import load_dotenv
 
+load_dotenv()
 
 BUCKET = os.getenv("R2_BUCKET")
 
@@ -50,6 +52,8 @@ def upload_dataset(local_directory: str | Path, prefix: str = "") -> None:
             BUCKET,
             object_key,
         )
+
+        print(f"{file} uploaded to {object_key}")
 
 
 def download_dataset(prefix: str, destination: str | Path) -> None:
