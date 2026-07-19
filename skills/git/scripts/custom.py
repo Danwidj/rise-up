@@ -72,7 +72,10 @@ def main():
         if not run_command("git push origin main"):
             sys.exit(1)
 
-        print("\nSuccess! Changes pulled, committed, and pushed smoothly.")
+        print("\nStep 4: Pulling latest changes from remote main...")
+        run_command("git pull origin main")
+
+        print("\nSuccess! Changes pulled, committed, pushed, and synced.")
 
     except KeyboardInterrupt:
         print("\nCancellation detected! Aborting operation and reverting to original state...")
