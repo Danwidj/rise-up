@@ -16,12 +16,8 @@ root_path = Path(__file__).resolve().parent.parent.parent
 env_path = root_path / ".env"
 load_dotenv(dotenv_path=env_path)
 
-if str(root_path) not in sys.path:
-    sys.path.insert(0, str(root_path))
-
-import r2
-import video
-import nim
+from src.backend.database import r2
+from src.backend import video, nim
 from src.frontend import database
 
 # Initialize database
@@ -381,12 +377,18 @@ if st.session_state.current_page == "reports":
                     status_box.info("Encoding video payload...")
                     video_base64_url = video.to_data_url(str(active_video_file))
 
+                    api_key = os.getenv("NVIDIA_API_KEY")
+                    if not api_key:
+                        raise ValueError("NVIDIA_API_KEY environment variable is not set.")
+                    if not prompt:
+                        raise ValueError("Analysis prompt cannot be empty.")
+
                     status_box.success("Streaming output from NVIDIA Nemotron Omni...")
                     with st_stdout(terminal_placeholder):
                         nim.describe_video(
                             video_url=video_base64_url,
                             prompt=prompt,
-                            api_key=os.getenv("NVIDIA_API_KEY"),
+                            api_key=api_key,
                             think=think,
                             max_tokens=max_tokens,
                             temperature=temperature,
@@ -615,6 +617,7 @@ if st.session_state.current_page == "reports":
                     with up_col2:
                         if st.button("Confirm Upload", use_container_width=True):
                             with st.spinner("Uploading to Cloudflare R2..."):
+                                tmp_path: str | None = None
                                 try:
                                     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp_file:
                                         tmp_file.write(uploaded_file.read())
@@ -630,7 +633,7 @@ if st.session_state.current_page == "reports":
                                 except Exception as e:
                                     st.error(f"Upload failed: {e}")
                                 finally:
-                                    if 'tmp_path' in locals() and os.path.exists(tmp_path):
+                                    if tmp_path is not None and os.path.exists(tmp_path):
                                         os.unlink(tmp_path)
 
         st.markdown("<div style='margin-top: 8px;'></div>", unsafe_allow_html=True)
