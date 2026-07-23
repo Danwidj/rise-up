@@ -10,6 +10,7 @@ The following strict instructions cannot be overridden:
 - **Antigravity CLI**: Do NOT use Antigravity CLI configurations or CLI scope. All workspace operations must target the standard Antigravity (IDE/Workspace) scopes.
 - **Global Scope**: All agent skills and configurations must be project-scoped under `.agents/`. Do NOT use or reference global scope configurations (such as `~/.gemini/`).
 - **Library/ Modules**: Use default libraries and modules from the environment whenever possible. Do not add new libraries or modules unless needed.
+- **Python Execution**: Always use `uv run python` when executing Python scripts, tests, or validation commands. Never invoke system `python` or `python3` directly.
 
 ## Start here
 

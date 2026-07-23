@@ -183,7 +183,7 @@ After a user uploads a video, redirect them to `reports_subview = "analyze"`.
 
 After making any frontend change:
 
-- [ ] Run `uv run .venv/Scripts/python.exe -m streamlit run src/frontend/app.py`
+- [ ] Run `uv run python -m streamlit run src/frontend/app.py`
       and confirm no import or syntax errors appear in the terminal.
 - [ ] Navigate to every top-level page and confirm it renders without a white
       screen or Python traceback.
